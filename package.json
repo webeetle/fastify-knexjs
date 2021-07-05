@@ -1,0 +1,62 @@
+{
+  "name": "@webeetle/fastify-knexjs",
+  "version": "1.0.0",
+  "description": "Add multiple KnexJS instance to Fastify",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "unit": "tap test.js",
+    "test": "npm run lint && npm run unit",
+    "coverage": "npm run unit --  --cov",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webeetle/fastify-knexjs.git"
+  },
+  "keywords": [
+    "fastify",
+    "fastify-plugin",
+    "knexjs"
+  ],
+  "author": "Davide D'Antonio <davide.dantonio@webeetle.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webeetle/fastify-knexjs/issues"
+  },
+  "homepage": "https://github.com/webeetle/fastify-knexjs#readme",
+  "dependencies": {
+    "fastify-plugin": "^3.0.0",
+    "knex": "^0.95.6"
+  },
+  "tap": {
+    "check-coverage": false
+  },
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/github": "^7.2.3",
+    "@semantic-release/release-notes-generator": "^9.0.3",
+    "fastify": "^3.18.1",
+    "mysql": "^2.18.1",
+    "standard": "^16.0.3",
+    "tap": "^15.0.9"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          "package.json"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
+  ]
+}
